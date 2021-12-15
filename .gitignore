@@ -1,0 +1,9 @@
+# Copyright Amazon.com, Inc. and its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: MIT-0
+
+# IntelliJ
+/.idea/
+*.iml
+
+build/
+.DS_Store
