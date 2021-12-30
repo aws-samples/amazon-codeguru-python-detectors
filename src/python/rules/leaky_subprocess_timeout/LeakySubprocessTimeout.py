@@ -2,7 +2,6 @@
 def subprocess_timeout_non_compliant():
     import subprocess
     process = subprocess.Popen("ls -al",
-                               shell=True,
                                bufsize=-1,
                                stdout=subprocess.PIPE,
                                stderr=subprocess.PIPE)
@@ -19,7 +18,6 @@ def subprocess_timeout_non_compliant():
 def subprocess_timeout_compliant():
     import subprocess
     process = subprocess.Popen("ls -al",
-                               shell=True,
                                bufsize=-1,
                                stdout=subprocess.PIPE,
                                stderr=subprocess.PIPE)

@@ -10,7 +10,6 @@ def lambda_handler_non_compliant(event, context):
 # {fact rule=lambda-client-reuse@v1.0 defects=0}
 import boto3
 client = boto3.client('s3')
-session = boto3.Session('dynamodb')
 
 
 def lambda_handler_compliant(event, context):
