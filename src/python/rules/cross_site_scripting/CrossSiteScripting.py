@@ -3,7 +3,7 @@ from flask import app
 
 
 @app.route('/redirect')
-def redirect_url_non_complaint():
+def redirect_url_non_compliant():
     from flask import request, redirect
     endpoint = request.args['url']
     # Noncompliant: redirect to a user-supplied URL without sanitization.
@@ -16,7 +16,7 @@ from flask import app
 
 
 @app.route('/redirect')
-def redirect_url_complaint():
+def redirect_url_compliant():
     from flask import request, url_for, redirect
     endpoint = request.args['url']
     # Compliant: user-supplied URL is sanitized before redirecting to it.

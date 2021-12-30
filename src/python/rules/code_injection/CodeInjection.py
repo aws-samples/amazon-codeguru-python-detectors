@@ -14,7 +14,7 @@ from flask import app
 
 
 @app.route('/')
-def execute_input_complaint():
+def execute_input_compliant():
     from flask import request
     module = request.args.get("module")
     # Compliant: executes sanitized inputs.
