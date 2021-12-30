@@ -2,7 +2,7 @@
 def readable_non_compliant():
     # Noncompliant: violates PEP8 programming recommendations,
     # making it difficult to read.
-    if not a is b:
+    if not a is None:
         print(a)
 # {/fact}
 
@@ -11,6 +11,6 @@ def readable_non_compliant():
 def readable_compliant():
     # Compliant: follows the PEP8 programming recommendations,
     # improving readability.
-    if a is not b:
+    if a is not None:
         print(a)
 # {/fact}

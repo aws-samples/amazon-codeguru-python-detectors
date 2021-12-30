@@ -2,12 +2,12 @@
 from multiprocessing import Process, set_start_method
 
 
-def fork_compliant():
-    print('fork use case!!')
+def fork_compliant(message):
+    print(str(message) + "fork use case!!")
 
 
 # Compliant: safely imports main module prior to executing the function.
 if __name__ == '__main__':
     set_start_method('fork', force=True)
-    Process(target=fork_compliant).start()
+    Process(target=fork_compliant, args=('Compliant',)).start()
 # {/fact}
