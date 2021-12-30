@@ -11,8 +11,8 @@ def get_metrics_non_compliant() -> None:
                 'Value': 'DimensionValue'
             },
         ],
-        EndTime=datetime.datetime.now(),
-        StartTime=datetime.datetime.now() - datetime.timedelta(days=1),
+        EndTime=datetime.datetime.now(datetime.timezone.utc),
+        StartTime=EndTime - datetime.timedelta(days=1),
         Period=300,
         # Noncompliant: calls mutually exclusive methods.
         Statistics=[
@@ -38,8 +38,8 @@ def get_metrics_compliant() -> None:
                 'Value': 'DimensionValue'
             },
         ],
-        EndTime=datetime.datetime.now(),
-        StartTime=datetime.datetime.now() - datetime.timedelta(days=1),
+        EndTime=datetime.datetime.now(datetime.timezone.utc),
+        StartTime=EndTime - datetime.timedelta(days=1),
         Period=300,
         # Compliant: avoid calling mutually exclusive methods.
         ExtendedStatistics=[
