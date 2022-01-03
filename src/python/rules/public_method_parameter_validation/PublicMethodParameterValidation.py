@@ -17,4 +17,4 @@ def login_compliant(username, password):
             and username.isalnum() and len(passoword) >=8 \
             and re.search(regex, username):
         login(username, password)
-# {/fact}
+# {/fact}:
