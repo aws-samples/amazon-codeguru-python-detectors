@@ -3,12 +3,12 @@ def execute_query_non_compliant(request):
     import sqlite3
     name = request.GET.get("name")
     query = "SELECT * FROM Users WHERE name = " + name + ";"
-    connection = sqlite3.connect("example.db")
-    cursor = connection.cursor()
-    # Noncompliant: user input might contain malicious special characters.
-    cursor.execute(query)
-    connection.commit()
-    connection.close()
+    with sqlite3.connect("example.db") as connection:
+        cursor = connection.cursor()
+        # Noncompliant: user input might contain malicious special characters.
+        cursor.execute(query)
+        connection.commit()
+        connection.close()
 # {/fact}
 
 
@@ -19,10 +19,10 @@ def execute_query_compliant(request):
     name = request.GET.get("name")
     query = "SELECT * FROM Users WHERE name = "
     + re.sub('[^a-zA-Z]+', '', name) + ";"
-    connection = sqlite3.connect("example.db")
-    cursor = connection.cursor()
-    # Compliant: user input is sanitized before use.
-    cursor.execute(query)
-    connection.commit()
-    connection.close()
+    with sqlite3.connect("example.db") as connection:
+        cursor = connection.cursor()
+        # Compliant: user input is sanitized before use.
+        cursor.execute(query)
+        connection.commit()
+        connection.close()
 # {/fact}
