@@ -51,7 +51,7 @@ jobs:
       continue-on-error: false
       id: analysis
       run: |
-        ./aws-codeguru-cli/bin/aws-codeguru-cli --no-prompt -r . -s src
+        ./aws-codeguru-cli/bin/aws-codeguru-cli --region us-west-2 --no-prompt -r . -s src
 
     - name: Upload full analysis results (JSON format) to workflow artifacts
       if: steps.assume-iam-role.outcome == 'success' && steps.analysis.outcome == 'success'
