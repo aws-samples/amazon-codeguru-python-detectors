@@ -66,7 +66,7 @@ jobs:
         jq '[ .[] | {RuleId: .RuleMetadata.RuleId, File: .FilePath, Line: .StartLine} ]' \
           code-guru/recommendations.json > code-guru/recommendations-summary.json
         jq -r '.[] | {RuleId: .RuleMetadata.RuleId, File: .FilePath, Line: .StartLine} | join(" ")' \
-          code-guru/recommendations.json > code-guru/recommendations-summary-table.txt
+          code-guru/recommendations.json | sort > code-guru/recommendations-summary-table.txt
 
     - name: Upload JSON summary of results to workflow artifacts
       if: steps.assume-iam-role.outcome == 'success' && steps.analysis.outcome == 'success'
