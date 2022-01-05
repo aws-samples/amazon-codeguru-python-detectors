@@ -46,12 +46,12 @@ jobs:
       run: |
         unzip cli/aws-codeguru-cli.zip
     
-    - name: Analyze repo with CodeGuru Reviewer CLI
+    - name: Analyze whole repo with CodeGuru Reviewer CLI
       if: steps.assume-iam-role.outcome == 'success'
       continue-on-error: false
       id: analysis
       run: |
-        ./aws-codeguru-cli/bin/aws-codeguru-cli -r . -s src
+        ./aws-codeguru-cli/bin/aws-codeguru-cli --no-prompt -r . -s src
 
     - name: Upload full analysis results (JSON format) to workflow artifacts
       if: steps.assume-iam-role.outcome == 'success' && steps.analysis.outcome == 'success'
