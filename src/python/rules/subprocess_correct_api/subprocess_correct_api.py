@@ -1,5 +1,8 @@
+#  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+#  SPDX-License-Identifier: Apache-2.0
+
 # {fact rule=subprocess-correct-api@v1.0 defects=1}
-def subprocess_call_non_compliant():
+def subprocess_call_noncompliant():
     import subprocess
     with open("~/output.txt", "w") as f:
         # Noncompliant: uses 'subprocess.call' with

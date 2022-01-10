@@ -1,5 +1,8 @@
+#  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+#  SPDX-License-Identifier: Apache-2.0
+
 # {fact rule=swallow-exceptions@v1.0 defects=1}
-def swallow_non_compliant():
+def swallow_noncompliant():
     for i in range(10):
         try:
             raise ValueError()

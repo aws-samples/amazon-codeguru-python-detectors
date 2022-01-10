@@ -1,8 +1,10 @@
+#  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+#  SPDX-License-Identifier: Apache-2.0
+
 # {fact rule=semaphore-overflow-prevention@v1.0 defects=1}
-def post_tasks_compliant(jobs, es_url):
+def post_tasks_noncompliant(jobs, es_url):
     import multiprocessing
     import requests
-    import urlparse
     jobs = multiprocessing.JoinableQueue()
     while True:
         try:
@@ -21,7 +23,6 @@ def post_tasks_compliant(jobs, es_url):
 def post_tasks_compliant(jobs, es_url):
     import multiprocessing
     import requests
-    import urlparse
     jobs = multiprocessing.JoinableQueue()
     while True:
         try:

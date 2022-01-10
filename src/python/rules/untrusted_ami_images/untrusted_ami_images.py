@@ -1,3 +1,6 @@
+#  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+#  SPDX-License-Identifier: Apache-2.0
+
 # {fact rule=untrusted-ami-images@v1.0 defects=1}
 def image_filter_non_compliant():
     import boto3
