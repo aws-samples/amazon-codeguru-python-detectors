@@ -1,5 +1,8 @@
+#  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+#  SPDX-License-Identifier: Apache-2.0
+
 # {fact rule=multiprocessing-deadlock-prevention@v1.0 defects=1}
-def deadlock_prevention_non_compliant():
+def deadlock_prevention_noncompliant():
     from subprocess import Popen, PIPE
     process = Popen('sh ~/example.sh', stdout=PIPE)
     # Noncompliant: uses the 'Popen.wait' with 'stdout=PIPE' or 'stderr=PIPE',

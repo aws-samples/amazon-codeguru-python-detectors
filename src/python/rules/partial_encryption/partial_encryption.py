@@ -1,5 +1,8 @@
+#  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+#  SPDX-License-Identifier: Apache-2.0
+
 # {fact rule=partial-encryption@v1.0 defects=1}
-def put_object_if_else_non_compliant():
+def put_object_if_else_noncompliant():
     import boto3
     client = boto3.client('s3')
     # Noncompliant: the data is not encrypted on all branches of a conditional.

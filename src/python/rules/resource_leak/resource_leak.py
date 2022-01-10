@@ -1,9 +1,12 @@
+#  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+#  SPDX-License-Identifier: Apache-2.0
+
 # {fact rule=resource-leak@v1.0 defects=1}
 from flask import app
 
 
 @app.route('/upload')
-def flask_non_compliant():
+def flask_noncompliant():
     from flask import request
     import re
 

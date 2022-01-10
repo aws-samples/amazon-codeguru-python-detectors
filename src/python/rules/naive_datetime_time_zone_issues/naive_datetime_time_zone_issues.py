@@ -1,5 +1,8 @@
+#  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+#  SPDX-License-Identifier: Apache-2.0
+
 # {fact rule=naive-datetime-time-zone-issues@v1.0 defects=1}
-def datetime_non_compliant():
+def datetime_noncompliant():
     from datetime import datetime, timezone
     # Noncompliant: datetime method does not specify timezone,
     # resulting in time zone related issues.

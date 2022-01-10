@@ -1,3 +1,6 @@
+#  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+#  SPDX-License-Identifier: Apache-2.0
+
 # {fact rule=process-spawning-with-main-module@v1.0 defects=0}
 from multiprocessing import Process, set_start_method
 

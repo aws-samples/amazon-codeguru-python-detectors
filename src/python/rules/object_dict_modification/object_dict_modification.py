@@ -1,5 +1,8 @@
+#  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+#  SPDX-License-Identifier: Apache-2.0
+
 # {fact rule=object-dict-modification@v1.0 defects=1}
-def modify_dictionary_non_compliant():
+def modify_dictionary_noncompliant():
     import os
     # Noncompliant: modifies the __dict__ object directly.
     os.__dict__ = value

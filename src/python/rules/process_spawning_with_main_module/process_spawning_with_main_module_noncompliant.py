@@ -1,8 +1,11 @@
+#  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+#  SPDX-License-Identifier: Apache-2.0
+
 # {fact rule=process-spawning-with-main-module@v1.0 defects=1}
 from multiprocessing import Process, set_start_method
 
 
-def fork_non_compliant(message):
+def fork_noncompliant(message):
     print(str(message) + "fork use case!!")
 
 

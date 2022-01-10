@@ -1,5 +1,8 @@
+#  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+#  SPDX-License-Identifier: Apache-2.0
+
 # {fact rule=equality-vs-identity@v1.0 defects=1}
-def notequals_operator_non_compliant():
+def notequals_operator_noncompliant():
     phrase = "Thisisstring"
     # Noncompliant: uses checks for equality instead of identity.
     if phrase != None:
