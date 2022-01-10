@@ -1,5 +1,8 @@
+#  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+#  SPDX-License-Identifier: Apache-2.0
+
 # {fact rule=leaky-subprocess-timeout@v1.0 defects=1}
-def subprocess_timeout_non_compliant():
+def subprocess_timeout_noncompliant():
     import subprocess
     process = subprocess.Popen("ls -al",
                                bufsize=-1,

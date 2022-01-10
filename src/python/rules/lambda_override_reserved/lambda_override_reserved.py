@@ -1,5 +1,8 @@
+#  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+#  SPDX-License-Identifier: Apache-2.0
+
 # {fact rule=lambda-override-reserved@v1.0 defects=1}
-def create_variable_non_compliant():
+def create_variable_noncompliant():
     import os
     # Noncompliant: overrides reserved environment variable names
     # in a Lambda function.

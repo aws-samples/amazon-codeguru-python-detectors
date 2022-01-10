@@ -1,9 +1,12 @@
+#  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+#  SPDX-License-Identifier: Apache-2.0
+
 # {fact rule=ldap-injection@v1.0 defects=1}
 from flask import app
 
 
 @app.route('/getUsers')
-def get_users_non_compliant():
+def get_users_noncompliant():
     import ldap
     from flask import request
     username = request.args['username']

@@ -1,5 +1,8 @@
+#  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+#  SPDX-License-Identifier: Apache-2.0
+
 # {fact rule=missing-pagination@v1.0 defects=1}
-def s3_loop_non_compliant(s3bucket_name, s3prefix_name):
+def s3_loop_noncompliant(s3bucket_name, s3prefix_name):
     import boto3
 
     s3_client = boto3.resource('s3').meta.client

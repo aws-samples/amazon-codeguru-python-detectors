@@ -1,5 +1,8 @@
+#  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+#  SPDX-License-Identifier: Apache-2.0
+
 # {fact rule=multidimension-list-using-replication@v1.0 defects=1}
-def error_prone_multidimensional_list_non_compliant():
+def error_prone_multidimensional_list_noncompliant():
     # Noncompliant: initialises a multidimensional list using replication.
     multi_dimension_list = [[None]]*3
 # {/fact}

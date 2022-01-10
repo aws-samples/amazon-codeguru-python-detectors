@@ -1,5 +1,8 @@
+#  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+#  SPDX-License-Identifier: Apache-2.0
+
 # {fact rule=missing-none-check@v1.0 defects=1}
-def none_check_non_compliant():
+def none_check_noncompliant():
     import boto3
     ddb_client = boto3.client('dynamodb')
     response = ddb_client.update_item()
