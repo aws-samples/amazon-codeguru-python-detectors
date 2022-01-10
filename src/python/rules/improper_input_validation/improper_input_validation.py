@@ -1,3 +1,6 @@
+#  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+#  SPDX-License-Identifier: Apache-2.0
+
 # {fact rule=improper-input-validation@v1.0 defects=1}
 def yaml_load_noncompliant():
     import json

@@ -1,5 +1,8 @@
+#  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+#  SPDX-License-Identifier: Apache-2.0
+
 # {fact rule=improper-wildcard-sanitization@v1.0 defects=1}
-def wildcard_sanitization_non_compliant():
+def wildcard_sanitization_noncompliant():
     import os
     import subprocess
     # Noncompliant: vulnerable to wildcard injection.

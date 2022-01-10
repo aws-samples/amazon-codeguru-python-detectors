@@ -1,3 +1,6 @@
+#  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+#  SPDX-License-Identifier: Apache-2.0
+
 # {publish rule=not-recommended-apis@v1.0 defects=0}
 import xml
 import defusedxml.sax
