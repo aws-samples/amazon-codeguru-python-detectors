@@ -1,5 +1,8 @@
+#  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+#  SPDX-License-Identifier: Apache-2.0
+
 # {fact rule=aws-polling-instead-of-waiter@v1.0 defects=1}
-def polling_vs_waiters_non_compliant(response):
+def polling_vs_waiters_noncompliant(response):
     import boto3
     ec2_client = boto3.client('ec2', region_name='us-east-1')
     ec2_instance_id = response['Instances'][0]['InstanceId']

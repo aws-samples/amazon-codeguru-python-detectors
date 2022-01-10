@@ -1,5 +1,8 @@
+#  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+#  SPDX-License-Identifier: Apache-2.0
+
 # {fact rule=dict-get-method@v1.0 defects=1}
-def keyerror_non_compliant():
+def keyerror_noncompliant():
     mydict = {1: 1, 2: 2, 3: 3}
     key = 5
     try:

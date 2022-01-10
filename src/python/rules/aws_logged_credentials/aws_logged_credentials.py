@@ -1,5 +1,8 @@
+#  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+#  SPDX-License-Identifier: Apache-2.0
+
 # {fact rule=aws-logged-credentials@v1.0 defects=1}
-def log_credentials_non_compliant():
+def log_credentials_noncompliant():
     import boto3
     import logging
     session = boto3.Session()
