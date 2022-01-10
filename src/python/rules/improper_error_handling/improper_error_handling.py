@@ -1,5 +1,8 @@
+#  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+#  SPDX-License-Identifier: Apache-2.0
+
 # {fact rule=improper-error-handling@v1.0 defects=1}
-def error_handling_pass_non_compliant():
+def error_handling_pass_noncompliant():
     number = input("Enter number:\n")
     try:
         int(number)
@@ -10,13 +13,14 @@ def error_handling_pass_non_compliant():
 
 
 # {fact rule=improper-error-handling@v1.0 defects=1}
-def error_handling_continue_non_compliant():
+def error_handling_continue_noncompliant():
     number = input("Enter number:\n")
-    try:
-        int(number)
-    except Exception:
-        # Noncompliant: has improper error handling.
-        continue
+    for i in range(10):
+        try:
+            int(number)
+        except Exception:
+            # Noncompliant: has improper error handling.
+            continue
 # {/fact}
 
 

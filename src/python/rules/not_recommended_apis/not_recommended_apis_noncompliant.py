@@ -1,3 +1,6 @@
+#  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+#  SPDX-License-Identifier: Apache-2.0
+
 # {publish rule=not-recommended-apis@v1.0 defects=1}
 import xml.sax
 from xml import sax
@@ -17,7 +20,7 @@ class ContentHandler(xml.sax.ContentHandler):
         print('characters:', characters)
 
 
-def recommended_apis_non_compliant():
+def recommended_apis_noncompliant():
     xml_string = "<body>XML_STRING</body>"
 
     # Noncompliant: uses xml.sax which is an unrecommended API.

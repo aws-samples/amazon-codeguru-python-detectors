@@ -1,5 +1,8 @@
+#  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+#  SPDX-License-Identifier: Apache-2.0
+
 # {fact rule=hardcoded-bind-all-interfaces@v1.0 defects=1}
-def bind_socket_non_compliant():
+def bind_socket_noncompliant():
     import socket
 
     my_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
