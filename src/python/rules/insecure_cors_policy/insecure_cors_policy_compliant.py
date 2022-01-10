@@ -1,3 +1,6 @@
+#  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+#  SPDX-License-Identifier: Apache-2.0
+
 # {fact rule=insecure-cors-policy@v1.0 defects=0}
 from flask import app, request
 from flask import Flask

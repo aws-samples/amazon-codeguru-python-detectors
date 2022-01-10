@@ -1,5 +1,8 @@
+#  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+#  SPDX-License-Identifier: Apache-2.0
+
 # {fact rule=hashlib-constructor@v1.0 defects=1}
-def constructor_non_compliant():
+def constructor_noncompliant():
     import hashlib
 
     text = "AWSGuruRules"
@@ -14,7 +17,7 @@ def constructor_non_compliant():
 
 
 # {fact rule=hashlib-constructor@v1.0 defects=0}
-def constructor_non_compliant():
+def constructor_compliant():
     import hashlib
 
     text = "AWSGuruRules"
