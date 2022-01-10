@@ -5,9 +5,9 @@
 def cryptography_noncompliant():
     from cryptography.hazmat.primitives import hashes, hmac
     import secrets
-    # Noncompliant: uses weak algorithm.
-    key = secrets.token_bytes(48)
-    hash_key = hmac.HMAC(key, algorithm=hashes.SHA1())
+    # Noncompliant: keysize too small for this algorithm.
+    key = secrets.token_bytes(12)
+    hash_key = hmac.HMAC(key, algorithm=hashes.SHA512_224())
 # {/fact}
 
 
@@ -15,7 +15,7 @@ def cryptography_noncompliant():
 def cryptography_compliant():
     from cryptography.hazmat.primitives import hashes, hmac
     import secrets
-    # Compliant: uses recommended algorithm.
+    # Compliant: keysize sufficient for this algorithm.
     key = secrets.token_bytes(48)
     hash_key = hmac.HMAC(key, algorithm=hashes.SHA512_224())
 # {/fact}
