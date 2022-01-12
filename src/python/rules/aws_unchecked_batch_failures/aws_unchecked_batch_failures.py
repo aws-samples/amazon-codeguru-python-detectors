@@ -1,5 +1,8 @@
+#  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+#  SPDX-License-Identifier: Apache-2.0
+
 # {fact rule=aws-unchecked-batch-failures@v1.0 defects=1}
-def write_itemsin_batch_non_compliant(self, request_items):
+def write_itemsin_batch_noncompliant(self, request_items):
     import boto3
     self.dynamodb = boto3.client('dynamodb')
     batch_list = self.dynamodb_conn.new_batch_write_list()

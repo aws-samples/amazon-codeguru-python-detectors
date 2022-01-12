@@ -1,3 +1,6 @@
+#  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+#  SPDX-License-Identifier: Apache-2.0
+
 # {fact rule=clear-text-credentials@v1.0 defects=0}
 PASSWORD_HASHERS = [
     # Compliant: uses standard and secure hashers.

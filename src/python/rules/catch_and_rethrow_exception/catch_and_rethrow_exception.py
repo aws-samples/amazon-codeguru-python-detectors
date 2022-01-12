@@ -1,5 +1,8 @@
+#  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+#  SPDX-License-Identifier: Apache-2.0
+
 # {fact rule=catch-and-rethrow-exception@v1.0 defects=1}
-def nested_non_compliant():
+def nested_noncompliant():
     try:
         try_something()
     except KeyError as e:

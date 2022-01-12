@@ -1,9 +1,12 @@
+#  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+#  SPDX-License-Identifier: Apache-2.0
+
 # {fact rule=cross-site-scripting@v1.0 defects=1}
 from flask import app
 
 
 @app.route('/redirect')
-def redirect_url_non_compliant():
+def redirect_url_noncompliant():
     from flask import request, redirect
     endpoint = request.args['url']
     # Noncompliant: redirect to a user-supplied URL without sanitization.

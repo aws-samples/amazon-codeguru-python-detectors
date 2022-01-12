@@ -1,9 +1,12 @@
+#  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+#  SPDX-License-Identifier: Apache-2.0
+
 # {fact rule=code-injection@v1.0 defects=1}
 from flask import app
 
 
 @app.route('/')
-def execute_input_non_compliant(module):
+def execute_input_noncompliant(module):
     # Noncompliant: executes unsanitized inputs.
     exec("import urllib%s as urllib" % module)
 # {/fact}

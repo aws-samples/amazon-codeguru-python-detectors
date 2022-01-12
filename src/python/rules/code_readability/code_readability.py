@@ -1,5 +1,8 @@
+#  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+#  SPDX-License-Identifier: Apache-2.0
+
 # {fact rule=code-readability@v1.0 defects=1}
-def avoid_complex_comprehension_non_compliant():
+def avoid_complex_comprehension_noncompliant():
     text = [['bar', 'pie', 'line'],
             ['Rome', 'Madrid', 'Houston'],
             ['aa', 'bb', 'cc', 'dd']]
