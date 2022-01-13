@@ -8,8 +8,7 @@ def deadlock_prevention_noncompliant():
     # Noncompliant: uses the 'Popen.wait' with 'stdout=PIPE' or 'stderr=PIPE',
     # resulting in a potential deadlock and busy loop.
     process.wait()
-    output = process.stdout.read()
-    print(output)
+    print(process.returncode)
 # {/fact}
 
 
@@ -19,5 +18,6 @@ def deadlock_prevention_compliant():
     process = Popen('sh ~/example.sh', stdout=PIPE)
     # Compliant: uses 'Popen.communicate' method, avoiding a
     # potential deadlock and busy loop.
-    print(process.communicate()[0])
+    process.communicate()[0]
+    print(process.returncode)
 # {/fact}
