@@ -28,13 +28,12 @@ from flask import request, app
 def find_users_compliant():
     from flask import request
     from lxml import etree
+    # Compliant: disabling external entities prevents XPath injection.
     parser = etree.XMLParser(resolve_entities=False)
     tree = etree.parse('users.xml', parser)
     root = tree.getroot()
     username = request.args['username']
-    query = "/collection/users/user[@name = $paramname]/location/text()"
-    # Compliant: user-supplied parameter is sanitized before its
-    # inclusion in the expression.
+    query = "/collection/users/user[@name = $parameter_name]/location/text()"
     elements = root.xpath(query, parameter_name=username)
     return 'Location %s' % list(elements)
 # {/fact}

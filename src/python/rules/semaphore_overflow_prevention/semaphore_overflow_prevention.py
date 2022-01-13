@@ -8,13 +8,13 @@ def post_tasks_noncompliant(jobs, es_url):
     jobs = multiprocessing.JoinableQueue()
     while True:
         try:
+            # Noncompliant: fails to call JoinableQueue.task_done()
+            # for each task removed from the JoinableQueue.
             image, image_name, tag = jobs.get()
             formatted_es_url = es_url.format(image_name)
             files = {'file': image.content, 'tag': tag}
             r = requests.post(formatted_es_url, files=files)
         finally:
-            # Noncompliant: fails to call JoinableQueue.task_done()
-            # for each task removed from the JoinableQueue.
             print("Task Done!!")
 # {/fact}
 
