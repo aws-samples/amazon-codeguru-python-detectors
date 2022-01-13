@@ -8,7 +8,7 @@ def execute_query_noncompliant(request):
     query = "SELECT * FROM Users WHERE name = " + name + ";"
     with sqlite3.connect("example.db") as connection:
         cursor = connection.cursor()
-        # Noncompliant: user input might contain malicious special characters.
+        # Noncompliant: user input is used without sanitization.
         cursor.execute(query)
         connection.commit()
         connection.close()

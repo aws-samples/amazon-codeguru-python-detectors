@@ -6,7 +6,7 @@ def keyerror_noncompliant():
     mydict = {1: 1, 2: 2, 3: 3}
     key = 5
     try:
-        # Noncompliant: uses [] and exceptions.
+        # Noncompliant: uses [] which causes exception when key is not found.
         count = mydict[key]
     except KeyError:
         count = 0
@@ -18,6 +18,6 @@ def keyerror_noncompliant():
 def keyerror_compliant():
     mydict = {1: 1, 2: 2, 3: 3}
     key = 5
-    # Compliant: use get() with a default value.
+    # Compliant: uses get() with a default value.
     return mydict.get(key, 0)
 # {/fact}

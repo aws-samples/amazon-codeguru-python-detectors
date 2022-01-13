@@ -10,7 +10,7 @@ def polling_vs_waiters_noncompliant(response):
     attempts = 0
     while True:
         print("Waiting for EC2 instance to be up")
-        # Noncompliant: use waiters feature instead of custom polling.
+        # Noncompliant: uses custom polling instead of waiters feature.
         rsp = ec2_client.describe_instance_status(
             InstanceIds=[
                 str(ec2_instance_id)
@@ -51,7 +51,7 @@ def polling_vs_waiters_compliant():
     stream_name = "tf_kinesis_test_1"
     client.create_stream(StreamName=stream_name, ShardCount=1)
     # Wait until stream exists, default is 10 * 18 seconds.
-    # Compliant: use waiters feature.
+    # Compliant: uses waiters feature.
     client.get_waiter('stream_exists').wait(StreamName=stream_name)
     for i in range(10):
         data = "D" + str(i)
