@@ -1,7 +1,7 @@
 #  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 #  SPDX-License-Identifier: Apache-2.0
 
-# {publish rule=not-recommended-apis@v1.0 defects=1}
+# {fact rule=not-recommended-apis@v1.0 defects=1}
 import xml.sax
 
 
@@ -28,4 +28,4 @@ def recommended_apis_noncompliant():
 
 if __name__ == "__main__":
     recommended_apis_non_compliant()
-# {/publish}
+# {/fact}
