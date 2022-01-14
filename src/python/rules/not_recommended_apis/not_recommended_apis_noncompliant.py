@@ -27,5 +27,5 @@ def recommended_apis_noncompliant():
 
 
 if __name__ == "__main__":
-    recommended_apis_non_compliant()
+    recommended_apis_noncompliant()
 # {/fact}
