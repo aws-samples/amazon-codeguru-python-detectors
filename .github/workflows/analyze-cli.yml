@@ -3,9 +3,9 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-name: Analyze with CodeGuru CLI
+name: Reviewer CLI
 
-on: [push]
+on: [pull_request]
 
 permissions:
   id-token: write
@@ -16,7 +16,7 @@ permissions:
 
 jobs:
   build:
-    name: Analyze with CodeGuru Reviewer CLI
+    name: Reviewer CLI
     runs-on: ubuntu-latest
     steps:
     - name: Assume IAM role
@@ -65,8 +65,10 @@ jobs:
       run: |
         jq '[ .[] | {RuleId: .RuleMetadata.RuleId, File: .FilePath, Line: .StartLine} ]' \
           code-guru/recommendations.json > code-guru/recommendations-summary.json
+        echo "Recommendations:" > code-guru/recommendations-summary-table.txt
+        echo "ruleId filePath lineNumber" >> code-guru/recommendations-summary-table.txt
         jq -r '.[] | {RuleId: .RuleMetadata.RuleId, File: .FilePath, Line: .StartLine} | join(" ")' \
-          code-guru/recommendations.json | sort > code-guru/recommendations-summary-table.txt
+          code-guru/recommendations.json | sort >> code-guru/recommendations-summary-table.txt
 
     - name: Upload JSON summary of results to workflow artifacts
       if: steps.assume-iam-role.outcome == 'success' && steps.analysis.outcome == 'success'
@@ -85,7 +87,7 @@ jobs:
     - name: Print tabular summary of results to stdout
       if: steps.assume-iam-role.outcome == 'success' && steps.analysis.outcome == 'success'
       run: |
-        cat code-guru/recommendations-summary-table.txt | column -t
+        cat code-guru/recommendations-summary-table.txt
 
     - name: Find the number of the current PR
       uses: jwalton/gh-find-current-pr@v1
