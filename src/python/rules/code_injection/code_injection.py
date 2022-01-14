@@ -1,3 +1,4 @@
+
 #  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 #  SPDX-License-Identifier: Apache-2.0
 
@@ -23,3 +24,4 @@ def execute_input_compliant():
     # Compliant: executes sanitized inputs.
     exec("import urllib%d as urllib" % int(module))
 # {/fact}
+
