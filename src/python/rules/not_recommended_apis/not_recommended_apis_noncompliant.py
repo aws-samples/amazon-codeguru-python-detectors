@@ -25,6 +25,7 @@ def recommended_apis_noncompliant():
     # Noncompliant: uses xml.sax which is an unrecommended API.
     xml.sax.parseString(xml_string, ContentHandler())
 
+
 if __name__ == "__main__":
     recommended_apis_non_compliant()
 # {/publish}
