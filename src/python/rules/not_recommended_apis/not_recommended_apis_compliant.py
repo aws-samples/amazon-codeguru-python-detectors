@@ -20,7 +20,7 @@ class ContentHandler(xml.sax.ContentHandler):
         print('characters:', characters)
 
 
-def recommended_apis_compliant():
+def not_recommended_apis_compliant():
     xml_string = "<body>XML_STRING</body>"
 
     # Compliant: avoids using unrecommended APIs.
@@ -28,5 +28,5 @@ def recommended_apis_compliant():
 
 
 if __name__ == "__main__":
-    recommended_apis_compliant()
+    not_recommended_apis_compliant()
 # {/publish}
