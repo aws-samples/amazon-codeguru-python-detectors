@@ -6,10 +6,7 @@ def wildcard_sanitization_noncompliant():
     import os
     import subprocess
     # Noncompliant: vulnerable to wildcard injection.
-    os.system("/bin/tar xvzf *")
-    os.system('/bin/chown *')
-    os.popen2('/bin/chmod *')
-    subprocess.Popen('/bin/chown *', shell=True)
+    os.popen('/bin/chown *')
 # {/fact}
 
 
@@ -18,10 +15,5 @@ def wildcard_sanitization_compliant():
     import os
     import subprocess
     # Compliant: not vulnerable to wildcard injection.
-    subprocess.Popen('/bin/rsync *')
-    subprocess.Popen("/bin/chmod *")
-    subprocess.Popen(['/bin/chown', '*'])
-    subprocess.Popen(["/bin/chmod", sys.argv[1], "*"],
-                     stdin=subprocess.PIPE, stdout=subprocess.PIPE)
-    os.spawnvp(os.P_WAIT, 'tar', ['tar', 'xvzf', '*'])
+    subprocess.Popen("/bin/chown *")
 # {/fact}
