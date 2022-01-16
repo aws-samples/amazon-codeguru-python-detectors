@@ -4,7 +4,6 @@
 # {fact rule=improper-wildcard-sanitization@v1.0 defects=1}
 def wildcard_sanitization_noncompliant():
     import os
-    import subprocess
     # Noncompliant: vulnerable to wildcard injection.
     os.popen('/bin/chown *')
 # {/fact}
@@ -12,7 +11,6 @@ def wildcard_sanitization_noncompliant():
 
 # {fact rule=improper-wildcard-sanitization@v1.0 defects=0}
 def wildcard_sanitization_compliant():
-    import os
     import subprocess
     # Compliant: not vulnerable to wildcard injection.
     subprocess.Popen("/bin/chown *")
