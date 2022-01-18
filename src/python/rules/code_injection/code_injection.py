@@ -7,9 +7,11 @@ from flask import app
 
 
 @app.route('/')
-def execute_input_noncompliant(module):
+def execute_input_noncompliant():
+    from flask import request
+    module_version = request.args.get("module_version")
     # Noncompliant: executes unsanitized inputs.
-    exec("import urllib%s as urllib" % module)
+    exec("import urllib%s as urllib" % module_version)
 # {/fact}
 
 
@@ -20,8 +22,7 @@ from flask import app
 @app.route('/')
 def execute_input_compliant():
     from flask import request
-    module = request.args.get("module")
+    module_version = request.args.get("module_version")
     # Compliant: executes sanitized inputs.
-    exec("import urllib%d as urllib" % int(module))
+    exec("import urllib%d as urllib" % int(module_version))
 # {/fact}
-
