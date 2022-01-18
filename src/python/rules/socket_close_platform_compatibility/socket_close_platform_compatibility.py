@@ -4,6 +4,7 @@
 # {fact rule=socket-close-platform-compatibility@v1.0 defects=1}
 def create_socket_noncompliant(samplehost, sampleport, samplebuffersize):
     import socket
+    socket.socket.settimeout(10.0)
     socket = socket.socket()
     socket.connect((samplehost, sampleport))
     print(socket.recv(samplebuffersize))
@@ -15,6 +16,7 @@ def create_socket_noncompliant(samplehost, sampleport, samplebuffersize):
 # {fact rule=socket-close-platform-compatibility@v1.0 defects=0}
 def create_socket_compliant(samplehost, sampleport, samplebuffersize):
     import socket
+    socket.socket.settimeout(10.0)
     socket = socket.socket()
     socket.connect((samplehost, sampleport))
     try:
