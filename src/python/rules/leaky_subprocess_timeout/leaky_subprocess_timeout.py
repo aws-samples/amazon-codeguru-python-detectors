@@ -25,7 +25,7 @@ def subprocess_timeout_compliant():
                                stdout=subprocess.PIPE,
                                stderr=subprocess.PIPE)
     try:
-        # Compliant: makes sure to terminate the child process before
+        # Compliant: makes sure to terminate the child process when
         # the timeout expires.
         outs, errs = process.communicate(timeout=15)
     except subprocess.TimeoutExpired:
