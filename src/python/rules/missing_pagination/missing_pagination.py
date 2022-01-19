@@ -41,8 +41,8 @@ def s3_recursion_compliant(self, s3bucket_name, s3prefix_name, token=None):
         return s3_deployment_folders
 
     next_response = self.s3_recursion_compliant(s3bucket_name, s3prefix_name,
-                                                 list_object_response[
-                                                     'NextContinuationToken'])
+                                                list_object_response
+                                                ['NextContinuationToken'])
     s3_deployment_folders += next_response
 
     return s3_deployment_folders
