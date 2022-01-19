@@ -3,6 +3,6 @@ Delete this file after first rule is populated.
 Note that we should use src/python/rules/rule-name
      rather than        src/rules/rule-name
 
-for consistency with the Java repo.
 
+for consistency with the Java repo.
 
