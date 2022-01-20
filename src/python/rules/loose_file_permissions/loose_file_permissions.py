@@ -10,7 +10,7 @@ def change_file_permissions_noncompliant():
 # {/fact}
 
 
-# {fact rule=loose-file-permissionsn@v1.0 defects=0}
+# {fact rule=loose-file-permissions@v1.0 defects=0}
 def change_file_permissions_compliant():
     import os
     import stat
