@@ -19,7 +19,7 @@ def shared_queue_noncompliant():
     # Noncompliant: uses 'Process.terminate' API on shared resources making
     # queue liable to become corrupted and may become unusable by other process
     process.terminate()
-    # Here, trying to access corrupt queue
+    # trying to access corrupt queue
     queue.put([50, None, 'hello'])
 # {/fact}
 
@@ -42,6 +42,6 @@ def shared_queue_compliant():
     # Compliant: avoids using 'Process.terminate' API on shared resources
     # making the queue accessible.
     queue.join()
-    # Here, accessing safe queue object
+    # accessing safe queue object
     queue.put([50, None, 'hello'])
 # {/fact}
