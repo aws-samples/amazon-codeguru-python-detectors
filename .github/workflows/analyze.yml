@@ -91,7 +91,7 @@ jobs:
       uses: marocchino/sticky-pull-request-comment@v2
       with:
         append: false
-        header: codeguru-findings
+        header: analyze
         number: ${{ steps.findpr.outputs.pr }}
         path: codeguru-results-ultra-summary.txt
         # message does not seem to be displayed in comment when `path` option is used.
