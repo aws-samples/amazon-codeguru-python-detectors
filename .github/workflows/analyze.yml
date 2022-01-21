@@ -12,6 +12,14 @@ on:
     # only main
     branches:
       main
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'debug'
+      tags:
+        description: 'Test scenario tags'
 
 permissions:
   id-token: write
