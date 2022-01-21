@@ -5,7 +5,7 @@
 def constructor_noncompliant():
     import hashlib
 
-    text = "AWSGuruRules"
+    text = "ExampleString"
 
     # Noncompliant: uses the new() constructor instead of the hashlib
     # constructor, which is slower.
@@ -20,7 +20,7 @@ def constructor_noncompliant():
 def constructor_compliant():
     import hashlib
 
-    text = "AWSGuruRules"
+    text = "ExampleString"
 
     # Compliant: uses the hashlib constructor over the new(), which is faster.
     result = hashlib.sha256(text.encode())
