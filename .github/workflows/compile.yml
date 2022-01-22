@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-name: Lint (flake8)
+name: Compile (py_compile)
 
 on:
   push:
@@ -29,11 +29,8 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: '3.x'
-      - name: Install dependencies
+      - name: Compile with py_compile
         run: |
-          python -m pip install --upgrade pip
-          pip install flake8
-          pip install pep8-naming
-      - name: Lint with flake8
-        run: flake8 --extend-ignore=F,C,E402 --per-file-ignores='src/python/detectors/pep8_recommendations/pep8_recommendations.py:E714 src/python/detectors/equality_vs_identity/equality_vs_identity.py:E711 src/python/detectors/xpath_injection/xpath_injection.py:N817' --show-source src
+          # Run "python -m py_compile" on every .py file under src
+          find ./src -name '*.py' | xargs python -m py_compile
       - run: echo "This job's status is ${{ job.status }}."
