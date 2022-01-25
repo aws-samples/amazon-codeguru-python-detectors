@@ -10,7 +10,7 @@ This repo demonstrates some of CodeGuru Reviewer's Python detectors. For more de
 
 You can use this code repository to try out CodeGuru Reviewer using your AWS credentials.
 
-### Prequisites
+### Prerequisites
 
 To use the CodeGuru Reviewer GitHub Action to scan a fork of this repo, you will first need to create a suitable Role, S3 Bucket, and Policy in your AWS account. You can do this automatically by following [these instructions](https://github.com/aws-samples/aws-codeguru-reviewer-cicd-cdk-sample).
 
@@ -18,7 +18,7 @@ To use the CodeGuru Reviewer GitHub Action to scan a fork of this repo, you will
 A CodeGuru Reviewer GitHub Action workflow template has already been added to this repo. To see CodeGuru Reviewer in action:
 
 1. Fork this repo.
-2. In `.github/workflows/analyze.yml`, replace the following three fields with the values obtained from the prequisites step above: your Role ARN (`role-to-assume`), your Region (`aws-region`), and your S3 bucket name (`s3_bucket`).
+2. In `.github/workflows/analyze.yml`, replace the following three fields with the values obtained from the prerequisites step above: your Role ARN (`role-to-assume`), your Region (`aws-region`), and your S3 bucket name (`s3_bucket`).
 3. Click on the Actions tab (next to pull requests).
 4. Click on the CodeGuru Reviewer Workflow.
 5. Click "Run workflow".
@@ -44,4 +44,4 @@ See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more inform
 
 ## License
 
-This project is licensed under the Apache-2.0 License. See the LICENSE file.
+This project is licensed under the Apache-2.0 License. See the [LICENSE](LICENSE) file.
