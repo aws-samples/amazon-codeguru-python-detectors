@@ -6,6 +6,7 @@
 name: CodeGuru Reviewer
 
 on:
+  # This trigger allows launching analyses on-demand via "Run workflow" button.
   workflow_dispatch:
     inputs:
       logLevel:
@@ -14,6 +15,10 @@ on:
         default: 'debug'
       tags:
         description: 'Test scenario tags'
+
+  # This trigger allows scheduled analyses.
+  # GitHub disables any scheduled analyses by default when you fork a repo.
+  # You can also remove these lines if you won't be needing scheduled runs.
   schedule:
     - cron: '0 0/6 * * *'
 
@@ -33,7 +38,7 @@ jobs:
       uses: aws-actions/configure-aws-credentials@v1
       with:
         role-to-assume: arn:aws:iam::048169001733:role/GuruGitHubCICDRole
-        aws-region: us-west-2
+        aws-region: eu-north-1
 
     - name: Check out repository
       uses: actions/checkout@v2
@@ -50,18 +55,15 @@ jobs:
       if: steps.assume-iam-role.outcome == 'success'
       continue-on-error: false
       with:
-        s3_bucket: codeguru-reviewer-github-profiler-demo-048169001733-uw2
+        s3_bucket: codeguru-reviewer-build-artifacts-048169001733-eu-north-1
         build_path: ./build/libs
-
-    - name: Postprocess SARIF file
-      run: jq '(..|objects|select(has("tags"))).tags |= (.|unique)' codeguru-results.sarif.json > results.sarif.json
 
     - name: Upload SARIF file to workflow artifacts
       if: steps.assume-iam-role.outcome == 'success' && steps.analysis.outcome == 'success'
       uses: actions/upload-artifact@v2
       with:
-        name: results.sarif.json
-        path: results.sarif.json
+        name: codeguru-results.sarif.json
+        path: codeguru-results.sarif.json
 
     #
     # Upload the SARIF analysis results to GitHub so that they appear on the GitHub UX.
@@ -73,7 +75,7 @@ jobs:
       if: steps.assume-iam-role.outcome == 'success' && steps.analysis.outcome == 'success'
       uses: github/codeql-action/upload-sarif@v1
       with:
-        sarif_file: results.sarif.json
+        sarif_file: codeguru-results.sarif.json
 
     #
     # The following steps are optional.
@@ -91,7 +93,7 @@ jobs:
       run: |
         echo "detector,filePath,lineNumber" > summary-of-results.csv
         jq -r '.runs[0].results[] | {ruleId: .ruleId, firstFile: .locations[0].physicalLocation.artifactLocation.uri, firstLine: .locations[0].physicalLocation.region.startLine} | join(",")' \
-          results.sarif.json | sort >> summary-of-results.csv
+          codeguru-results.sarif.json | sort >> summary-of-results.csv
 
     - name: Upload results summary to workflow artifacts
       if: steps.assume-iam-role.outcome == 'success' && steps.analysis.outcome == 'success'
