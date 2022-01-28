@@ -6,8 +6,8 @@
 name: CodeGuru Reviewer
 
 on:
-  # This trigger allows launching analyses on-demand via "Run workflow" button.
   workflow_dispatch:
+    # This trigger allows launching analyses on-demand via "Run workflow" button.
     inputs:
       logLevel:
         description: 'Log level'
@@ -16,12 +16,9 @@ on:
       tags:
         description: 'Test scenario tags'
   schedule:
-    - cron: '0 0/6 * * *'
-
-  # This trigger allows scheduled analyses.
-  # GitHub disables any scheduled analyses by default when you fork a repo.
-  # You can also remove these lines if you won't be needing scheduled runs.
-  schedule:
+    # This trigger allows scheduled analyses.
+    # GitHub disables any scheduled analyses by default when you fork a repo.
+    # Still, please remove these lines if your fork doesn't need scheduled runs.
     - cron: '0 0/6 * * *'
 
 permissions:
@@ -56,7 +53,7 @@ jobs:
       if: steps.assume-iam-role.outcome == 'success'
       continue-on-error: false
       with:
-        s3_bucket: codeguru-reviewer-build-artifacts-048169001733-eu-north-1
+        s3_bucket: codeguru-reviewer-github-profiler-demo-048169001733-uw2
         build_path: ./build/libs
 
     - name: Upload SARIF file to workflow artifacts
