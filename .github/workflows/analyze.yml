@@ -6,8 +6,8 @@
 name: CodeGuru Reviewer
 
 on:
+  # On-demand analysis via "Run workflow" button.
   workflow_dispatch:
-    # This trigger allows launching analyses on-demand via "Run workflow" button.
     inputs:
       logLevel:
         description: 'Log level'
@@ -15,10 +15,9 @@ on:
         default: 'debug'
       tags:
         description: 'Test scenario tags'
+  # GitHub disables any scheduled analyses by default when you fork a repo.
+  # Still, please remove these two lines if your fork doesn't need scheduled runs.
   schedule:
-    # This trigger allows scheduled analyses.
-    # GitHub disables any scheduled analyses by default when you fork a repo.
-    # Still, please remove these lines if your fork doesn't need scheduled runs.
     - cron: '0 0/6 * * *'
 
 permissions:
