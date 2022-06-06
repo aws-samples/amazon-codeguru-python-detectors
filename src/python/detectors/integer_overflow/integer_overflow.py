@@ -2,9 +2,8 @@
 #  SPDX-License-Identifier: Apache-2.0
 
 # {fact rule=integer-overflow@v1.0 defects=1}
+import numpy as np
 def integer_overflow_noncompliant():
-    import numpy as np
-    from pandas import DataFrame
     # Noncompliant: Number larger than limit of the datatype is stored.
     arr = np.array([[100000000]], dtype=np.int8)
 # {/fact}
@@ -12,8 +11,6 @@ def integer_overflow_noncompliant():
 
 # {fact rule=integer-overflow@v1.0 defects=0}
 def integer_overflow_compliant(self, request_items):
-    import numpy as np
-    from pandas import DataFrame
     # Compliant: Number stored is within the limits of the specified datatype.
     arr = np.array([100000000], dtype=np.int32)
     return response, unprocessed
