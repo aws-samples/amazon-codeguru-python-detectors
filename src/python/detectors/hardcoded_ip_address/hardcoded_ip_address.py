@@ -11,9 +11,9 @@ def hardcoded_ip_address_noncompliant():
 
 
 # {fact rule=hardcoded-ip-address@v1.0 defects=0}
-def hardcoded_ip_address_compliant():
-    ip_add = "1080:0::0::8:200C:131.107.129.8"
+def hardcoded_ip_address_compliant(ip_add=None):
+    from socket import AF_INET, SOCK_STREAM, socket
     sock = socket(AF_INET, SOCK_STREAM)
-    # Compliant: Safe Hardcoded ip address is used.
-    sock.bind(('255.255.255.255', 80))
+    # Compliant: Unsafe Hardcoded ip address is not used.
+    sock.bind((ip_add, 5080))
 # {/fact}
