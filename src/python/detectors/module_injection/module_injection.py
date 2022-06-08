@@ -4,17 +4,17 @@
 # {fact rule=module-injection@v1.0 defects=1}
 def module_injection_noncompliant():
     import yaml
-    var = input()
+    input_data = input()
     # Noncompliant: load_all without processing is used.
-    yaml.load_all(var)
+    yaml.load_all(input_data)
 # {/fact}
 
 
 # {fact rule=module-injection@v1.0 defects=0}
 def module_injection_compliant():
     import socket
-    var = input()
-    var = internalProcessing(var)
+    input_data = input()
+    processed_data = internalProcessing(input_data)
     # Compliant: load_all after processing is used.
-    val = yaml.load_all(var, Loader=yaml.Loader)
+    yaml.load_all(processed_data, Loader=yaml.Loader)
 # {/fact}
