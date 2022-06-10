@@ -3,18 +3,19 @@
 
 # {fact rule=module-injection@v1.0 defects=1}
 def module_injection_noncompliant():
-    import yaml
-    input_data = input()
-    # Noncompliant: load_all without processing is used.
-    yaml.load_all(input_data)
+    import importlib
+    module_name = input('module name')
+    # Noncompliant: Untrusted user input is being passed to `import_module`.
+    importlib.import_module(module_name)
 # {/fact}
 
 
 # {fact rule=module-injection@v1.0 defects=0}
 def module_injection_compliant():
-    import socket
-    input_data = input()
-    processed_data = internalProcessing(input_data)
-    # Compliant: load_all after processing is used.
-    yaml.load_all(processed_data, Loader=yaml.Loader)
+    import importlib
+    allowed_module_names_list = ['example_module1', 'example_module2']
+    module_name = input('module name')
+    if module_name in allowed_module_names_list:
+        # Compliant: User input is validated before using in `import_module()`.
+        importlib.import_module(module_name)
 # {/fact}
