@@ -13,5 +13,4 @@ def integer_overflow_noncompliant():
 def integer_overflow_compliant(self, request_items):
     # Compliant: Number stored is within the limits of the specified datatype.
     arr = np.array([100000000], dtype=np.int32)
-    return response, unprocessed
 # {/fact}
