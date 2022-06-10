@@ -8,7 +8,7 @@ def docker_arbitrary_container_run_noncompliant(request):
     from flask import request
     client = docker.from_env()
     img = request.args.get("image")
-    # Noncompliant: Unsanitised user input is passed to run() method.
+    # Noncompliant: Unsanitised user input is passed to `run`.
     client.containers.run(img, 'echo non compliant')
 # {/fact}
 
@@ -18,6 +18,6 @@ def docker_arbitrary_container_run_noncompliant(request):
 def docker_arbitrary_container_run_compliant(request):
     import html
     img = html.escape(request.args.get("image"))
-    # Compliant: User input is sanitised using html.escape method.
+    # Compliant: User input is sanitised using `html.escape`.
     client.containers.run(img, 'echo hello world')
 # {/fact}
