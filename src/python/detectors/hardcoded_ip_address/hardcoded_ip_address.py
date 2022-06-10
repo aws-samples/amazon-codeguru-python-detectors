@@ -5,7 +5,7 @@
 def hardcoded_ip_address_noncompliant():
     from socket import AF_INET, SOCK_STREAM, socket
     sock = socket(AF_INET, SOCK_STREAM)
-    # Noncompliant: Unsafe Hardcoded ip address is used.
+    # Noncompliant: Unsafe hardcoded ip address is used.
     sock.bind(('193.168.14.31', 80))
 # {/fact}
 
@@ -14,6 +14,6 @@ def hardcoded_ip_address_noncompliant():
 def hardcoded_ip_address_compliant(ip_add=None):
     from socket import AF_INET, SOCK_STREAM, socket
     sock = socket(AF_INET, SOCK_STREAM)
-    # Compliant: Unsafe Hardcoded ip address is not used.
+    # Compliant: Unsafe hardcoded ip address is not used.
     sock.bind((ip_add, 5080))
 # {/fact}
