@@ -12,6 +12,7 @@ def detect_activated_debug_feature_noncompliant():
 # {fact rule=detect-activated-debug-feature@v1.0 defects=0}
 def detect_activated_debug_feature_compliant():
     from django.conf import settings
+    import os
     # Compliant: The debug feature is set through the environment variable.
-    settings.configure(DEBUG=os.environ('DEBUG'))
+    settings.configure(DEBUG=os.environ['DEBUG'])
 # {/fact}
