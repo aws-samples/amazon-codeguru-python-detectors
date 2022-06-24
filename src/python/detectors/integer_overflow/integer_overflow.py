@@ -3,6 +3,8 @@
 
 import numpy as np
 # {fact rule=integer-overflow@v1.0 defects=1}
+
+
 def integer_overflow_noncompliant():
     # Noncompliant: Number larger than limit of the datatype is stored.
     arr = np.array([[100000000]], dtype=np.int8)
