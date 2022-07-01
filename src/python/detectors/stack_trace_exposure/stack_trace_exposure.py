@@ -21,7 +21,7 @@ def stack_trace_exposure_noncompliant(text):
 # {/fact}
 
 
-# {fact rule=stack-trace-exposur@v1.0 defects=0}
+# {fact rule=stack-trace-exposure@v1.0 defects=0}
 @app_flask.route('/compliant/<text>')
 def stack_trace_exposure_compliant(text):
     try:
