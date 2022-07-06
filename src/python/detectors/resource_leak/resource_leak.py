@@ -2,36 +2,16 @@
 #  SPDX-License-Identifier: Apache-2.0
 
 # {fact rule=resource-leak@v1.0 defects=1}
-from flask import app
-
-
-@app.route('/upload')
-def flask_noncompliant():
-    from flask import request
-    import re
-
-    username = request.args.get('username')
-    filename = request.files.get('attachment').filename
-
-    # Noncompliant: constructs regular expression from user input
-    # without sanitization.
-    re.search(username, filename)
+def read_file_noncompliant(filename):
+    file = open(filename, 'r')
+    # Noncompliant: method returns without properly closing the file.
+    return file.readlines()
 # {/fact}
 
 
 # {fact rule=resource-leak@v1.0 defects=0}
-from flask import app
-
-
-@app.route('/upload')
-def flask_compliant():
-    from flask import request
-    import re
-
-    username = re.escape(request.args.get('username'))
-    filename = request.files.get('attachment').filename
-
-    # Compliant: user input is sanitized before constructing
-    # a regular expression.
-    re.search(username, filename)
+def read_file_compliant(filename):
+    # Compliant: file is declared using a `with` statement.
+    with open(filename, 'r') as file:
+        return f.readlines()
 # {/fact}
