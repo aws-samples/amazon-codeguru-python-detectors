@@ -16,7 +16,7 @@ def verify_file_path_compliant():
     from flask import request
     file_path = request.args["file"]
     # Compliant: user input file path is sanitized.
-    file_path = file_path.replace(" ", ",")
+    file_path = file_path.replace("..", "")
     file = open(file_path)
     file.close()
 # {/fact}
