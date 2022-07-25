@@ -1,4 +1,4 @@
 #Main: test function for naming
-def main:
+def main: 
 test bad formatting
 
