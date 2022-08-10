@@ -16,7 +16,7 @@ def verify_file_path_compliant():
     from flask import request
     base_path = "/var/data/images/"
     file_path = request.args["file"]
-    allowed_path = ["'example_path1', 'example_path2"]
+    allowed_path = ["example_path1", "example_path2"]
     # Compliant: user input file path is sanitized.
     if file_path in allowed_path:
         file = open(base_path + file_path)
