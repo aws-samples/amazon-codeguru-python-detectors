@@ -41,7 +41,7 @@ def pytorch_redundant_softmax_noncompliant():
         def forward(self, x):
             x = self.flatten(x)
             logits = self.linear_relu_stack(x)
-            # Noncompliant - Softmax used with CrossEntropyLoss.
+            # Noncompliant: Softmax used with CrossEntropyLoss.
             logits = nn.functional.softmax(logits)
             return logits
 
