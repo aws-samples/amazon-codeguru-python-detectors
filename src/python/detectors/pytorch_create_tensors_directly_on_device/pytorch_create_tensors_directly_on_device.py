@@ -1,7 +1,7 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 
-# {fact rule=pytorch_create_tensors_directly_on_device@v1.0 defects=1}
+# {fact rule=pytorch-create-tensors-directly-on-device@v1.0 defects=1}
 def pytorch_create_tensors_directly_on_device_noncompliant():
     import torch
     t = torch.ones(list(range(1, 11)), dtype=torch.float64)
@@ -10,7 +10,7 @@ def pytorch_create_tensors_directly_on_device_noncompliant():
 # {/fact}
 
 
-# {fact rule=pytorch_create_tensors_directly_on_device@v1.0 defects=0}
+# {fact rule=pytorch-create-tensors-directly-on-device@v1.0 defects=0}
 def pytorch_create_tensors_directly_on_device_compliant():
     import torch
     # Compliant: tensor is directly created on device.
