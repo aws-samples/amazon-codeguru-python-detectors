@@ -5,7 +5,8 @@
 def tensorflow_avoid_using_nondeterministic_api_noncompliant():
     import tensorflow as tf
     data = tf.ones((1, 1))
-    # Noncompliant: uses non-deterministic API.
+    # Noncompliant: Determinism of tf.compat.v1.Session can not be guaranteed in TF2.
+    tf.config.experimental.enable_op_determinism()
     tf.compat.v1.Session(
         target='', graph=None, config=None
     )
