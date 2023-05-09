@@ -13,9 +13,15 @@ def missing_seed_in_pytorch_random_number_generator_noncompliant():
 # {fact rule=missing-seed-in-pytorch-random-number-generator@v1.0 defects=0}
 def missing_seed_in_pytorch_random_number_generator_compliant():
     import torch
-    seed = 42
+    import numpy as np
+    import random
+
     # Compliant: seed has been set.
-    torch.manual_seed(seed)
-    tensor_2 = torch.rand(2)
-    print(tensor_2)
+    np.random.seed(10)
+    torch.manual_seed(5)
+    random.seed(10)
+
+    x = np.random.randint(3,2)
+    y = torch.svd_lowrank(x, q=2)
+    z = random.randrange(1,8)
 # {/fact}
