@@ -49,12 +49,11 @@ def pytorch_data_loader_with_multiple_workers_compliant(args):
     train_sampler = torch.utils.data.distributed\
         .DistributedSampler(train_dataset)
 
-    # Compliant: args.workers value is assigned to num_workers,
-    # but native python 'list/dict' is not used here to store the dataset.
+    # Compliant: value of num_workers is 0.
     train_loader = torch.utils.data.DataLoader(train_dataset,
                                                batch_size=args.batch_size,
                                                shuffle=(train_sampler is None),
-                                               num_workers=args.workers,
+                                               num_workers=0,
                                                pin_memory=True,
                                                sampler=train_sampler)
 
