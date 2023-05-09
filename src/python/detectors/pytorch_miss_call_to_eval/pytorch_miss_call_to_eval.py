@@ -5,7 +5,7 @@
 def pytorch_miss_call_to_eval_noncompliant(model):
     import torch
     model.load_state_dict(torch.load("model.pth"))
-    # Noncompliant: miss call to `eval()` after load.
+    # Noncompliant: miss call to `eval()` before evaluating the model.
     classes = ["T-shirt/top", "Trouser", "Pullover", "Dress", "Coat",
                "Sandal", "Shirt", "Sneaker", "Bag", "Ankle boot"]
     x, y = test_data[0][0], test_data[0][1]
@@ -22,7 +22,7 @@ def pytorch_miss_call_to_eval_compliant(model):
     model.load_state_dict(torch.load("model.pth"))
     classes = ["T-shirt/top", "Trouser", "Pullover", "Dress", "Coat",
                "Sandal", "Shirt", "Sneaker", "Bag", "Ankle boot"]
-    # Compliant: `eval()` is called after load.
+    # Compliant: `eval()` is called before evaluating the model. 
     model.eval()
     x, y = test_data[0][0], test_data[0][1]
     with torch.no_grad():
