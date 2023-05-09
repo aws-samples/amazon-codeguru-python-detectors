@@ -21,7 +21,7 @@ def missing_seed_in_pytorch_random_number_generator_compliant():
     torch.manual_seed(5)
     random.seed(10)
 
-    x = np.random.randint(3,2)
+    x = np.random.randint(3, 2)
     y = torch.svd_lowrank(x, q=2)
-    z = random.randrange(1,8)
+    z = random.randrange(1, 8)
 # {/fact}
