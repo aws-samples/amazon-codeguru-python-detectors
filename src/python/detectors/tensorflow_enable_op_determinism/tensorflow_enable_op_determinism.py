@@ -10,7 +10,6 @@ def tensorflow_enable_op_determinism_noncompliant():
     model = tf.keras.models.Model(inputs=layer, outputs=layer)
     model.compile(loss="categorical_crossentropy", metrics="AUC")
     model.fit(x=data, y=data)
-
 # {/fact}
 
 
