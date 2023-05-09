@@ -8,8 +8,8 @@ def disable_gradient_calculation_noncompliant():
     with torch.no_grad():
         model.eval()
         # some code
-        
-        
+
+
 def disable_gradient_calculation_noncompliant():
     import torch
     # Noncompliant: gradient calculation not disabled during evaluation.
