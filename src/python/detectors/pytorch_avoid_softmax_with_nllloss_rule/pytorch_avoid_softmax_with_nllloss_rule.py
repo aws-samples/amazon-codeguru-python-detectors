@@ -1,8 +1,8 @@
 #  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 #  SPDX-License-Identifier: Apache-2.0
 
-# {fact rule=pytorch-avoid-softmax-with-nllloss@v1.0 defects=1}
-def pytorch_avoid_softmax_with_nllloss_noncompliant():
+# {fact rule=pytorch-avoid-softmax-with-nllloss-rule@v1.0 defects=1}
+def pytorch_avoid_softmax_with_nllloss_rule_noncompliant():
     import math
     import torch
     import torch.nn as nn
@@ -15,8 +15,8 @@ def pytorch_avoid_softmax_with_nllloss_noncompliant():
 # {/fact}
 
 
-# {fact rule=pytorch-avoid-softmax-with-nllloss@v1.0 defects=0}
-def pytorch_avoid_softmax_with_nllloss_compliant():
+# {fact rule=pytorch-avoid-softmax-with-nllloss-rule@v1.0 defects=0}
+def pytorch_avoid_softmax_with_nllloss_rule_compliant():
     import math
     import torch
     import torch.nn as nn
