@@ -13,5 +13,5 @@ def read_file_noncompliant(filename):
 def read_file_compliant(filename):
     # Compliant: file is declared using a `with` statement.
     with open(filename, 'r') as file:
-        return f.readlines()
+        return file.readlines()
 # {/fact}
