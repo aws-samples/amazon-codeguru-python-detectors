@@ -16,7 +16,7 @@ def logging_noncompliant():
 # {fact rule=log-injection@v1.0 defects=0}
 def logging_compliant():
     filename = input("Enter a filename: ")
-    if filename.isalnum():
+    if re.match(r'^[\w_ -\.]+$', filename):
         # Compliant: input is validated before logging.
         logger.info("Processing %s", filename)
 # {/fact}
