@@ -7,6 +7,14 @@ def disable_gradient_calculation_noncompliant():
     # Noncompliant: disables gradient calculation using `torch.no_grad()`.
     with torch.no_grad():
         model.eval()
+        # some code
+
+
+def disable_gradient_calculation_noncompliant():
+    import torch
+    # Noncompliant: gradient calculation not disabled during evaluation.
+    model.eval()
+    # some code
 # {/fact}
 
 
@@ -16,4 +24,5 @@ def disable_gradient_calculation_compliant():
     # Compliant: disables gradient calculation using `torch.inference_mode()`.
     with torch.inference_mode():
         model.eval()
+        # some code
 # {/fact}
